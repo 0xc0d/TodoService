@@ -1,10 +1,10 @@
 package config
 
 import (
-	"log"
 	"sync"
 
 	"github.com/kelseyhightower/envconfig"
+	"github.com/rs/zerolog/log"
 )
 
 type Config struct {
@@ -29,6 +29,6 @@ func Load() *Config {
 func load() {
 	config = new(Config)
 	if err := envconfig.Process("", config); err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err).Send()
 	}
 }
