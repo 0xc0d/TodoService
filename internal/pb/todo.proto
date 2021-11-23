@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = "TodoService/internal/pb";
+
+package todo;
+
+import "google/protobuf/timestamp.proto";
+
+service Todo {
+  rpc CreateTask (CreateTaskRequest) returns (Task) {}
+  rpc GetTask (GetTaskRequest) returns (Task) {}
+  rpc GetAllTasks (Empty) returns (Tasks) {}
+  rpc UpdateTask (UpdateTaskRequest) returns (Task) {}
+  rpc DeleteTask (DeleteTaskRequest) returns (Empty) {}
+}
+
+message Empty {}
+
+message CreateTaskRequest {
+  string title = 2;
+  string comments = 3;
+  repeated string labels = 4;
+  google.protobuf.Timestamp due_date = 5;
+  bool done = 6;
+}
+
+message GetTaskRequest {
+  uint64 taskID = 1;
+}
+
+message UpdateTaskRequest {
+  Task task = 1;
+}
+
+
+message DeleteTaskRequest {
+  uint64 taskID = 1;
+}
+
+message Task {
+  uint64 id = 1;
+  string title = 2;
+  string comments = 3;
+  repeated string labels = 4;
+  google.protobuf.Timestamp due_date = 5;
+  bool done = 6;
+}
+
+message Tasks {
+  repeated Task tasks = 1;
+}
