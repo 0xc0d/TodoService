@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"todoService/internal/repository"
-	"todoService/internal/service"
+	"github.com/0xc0d/TodoService/internal/repository"
+	"github.com/0xc0d/TodoService/internal/service"
 
 	"github.com/stretchr/testify/suite"
 	"go.uber.org/goleak"

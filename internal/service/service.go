@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"todoService/internal/pb"
+	"github.com/0xc0d/TodoService/internal/pb"
 
 	"go.opentelemetry.io/otel"
 	"google.golang.org/protobuf/types/known/timestamppb"

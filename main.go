@@ -9,11 +9,11 @@ import (
 	"os/signal"
 	"runtime"
 	"syscall"
-	"todoService/internal/config"
-	"todoService/internal/pb"
-	"todoService/internal/repository"
-	"todoService/internal/service"
-	"todoService/internal/trace"
+	"github.com/0xc0d/TodoService/internal/config"
+	"github.com/0xc0d/TodoService/internal/pb"
+	"github.com/0xc0d/TodoService/internal/repository"
+	"github.com/0xc0d/TodoService/internal/service"
+	"github.com/0xc0d/TodoService/internal/trace"
 )
 
 const (

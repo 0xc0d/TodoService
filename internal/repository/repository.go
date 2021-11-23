@@ -6,7 +6,7 @@ import (
 	"go.opentelemetry.io/otel"
 	"sync"
 
-	"todoService/internal/service"
+	"github.com/0xc0d/TodoService/internal/service"
 )
 
 const serviceName = "repository"

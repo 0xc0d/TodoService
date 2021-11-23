@@ -1,4 +1,4 @@
-module todoService
+module github.com/0xc0d/TodoService
 
 go 1.17
 

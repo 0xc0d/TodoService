@@ -5,10 +5,10 @@ import (
 	"go.uber.org/goleak"
 	"testing"
 	"time"
-	"todoService/internal/repository"
-	"todoService/internal/service"
+	"github.com/0xc0d/TodoService/internal/repository"
+	"github.com/0xc0d/TodoService/internal/service"
 
-	"todoService/internal/pb"
+	"github.com/0xc0d/TodoService/internal/pb"
 
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/protobuf/types/known/timestamppb"
