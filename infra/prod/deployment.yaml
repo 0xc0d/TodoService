@@ -25,7 +25,7 @@ spec:
             - name: HOST
               value: "0.0.0.0"
             - name: ENV
-              value: "development"
+              value: "production"
           ports:
             - name: grpc
               containerPort: 6666

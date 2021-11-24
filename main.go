@@ -1,6 +1,12 @@
 package main
 
 import (
+	"context"
+	"github.com/0xc0d/TodoService/internal/config"
+	"github.com/0xc0d/TodoService/internal/pb"
+	"github.com/0xc0d/TodoService/internal/repository"
+	"github.com/0xc0d/TodoService/internal/service"
+	"github.com/0xc0d/TodoService/internal/trace"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -9,11 +15,6 @@ import (
 	"os/signal"
 	"runtime"
 	"syscall"
-	"github.com/0xc0d/TodoService/internal/config"
-	"github.com/0xc0d/TodoService/internal/pb"
-	"github.com/0xc0d/TodoService/internal/repository"
-	"github.com/0xc0d/TodoService/internal/service"
-	"github.com/0xc0d/TodoService/internal/trace"
 )
 
 const (
@@ -52,7 +53,8 @@ func main() {
 
 	if cfg.JaegerEndpoint != "" {
 		log.Info().Msgf("starting Jaeger on %s", cfg.JaegerEndpoint)
-		trace.SetupJaeger(cfg.JaegerEndpoint, "TodoService", cfg.Environment)
+		shutdown := trace.SetupJaeger(cfg.JaegerEndpoint, "TodoService", cfg.Environment)
+		defer shutdown(context.TODO())
 	}
 
 	sigChan := make(chan os.Signal, 1)
